@@ -34,11 +34,11 @@ exports.signup = (req, res, next) => {
               .then((createdUser) => {
                 console.log(
                   path.normalize(
-                    appRoot + "/client/src/assets/" + createdUser._id
+                    appRoot + "/public/" + createdUser._id
                   )
                 );
                 var dir = path.normalize(
-                  appRoot + "/client/src/assets/" + createdUser._id
+                  appRoot + "/public/" + createdUser._id
                 );
 
                 if (!fs.existsSync(dir)) {
@@ -282,7 +282,7 @@ exports.delete_file = (req, res, next) => {
         .then((result) => {
           try {
             fs.unlinkSync(
-              `${appRoot}/client/src/assets/${id}/${deleteFileName}`
+              `${appRoot}/public/${id}/${deleteFileName}`
             );
           } catch (err) {
             console.error("File dooes not exists");
